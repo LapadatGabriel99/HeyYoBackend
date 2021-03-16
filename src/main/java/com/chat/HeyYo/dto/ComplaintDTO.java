@@ -2,10 +2,16 @@ package com.chat.HeyYo.dto;
 
 import com.chat.HeyYo.document.ComplaintCategory;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+@Getter
+@Setter
 public class ComplaintDTO {
 
     @NotBlank(message = "{complaint.issuedBy.notnull}")
@@ -19,6 +25,6 @@ public class ComplaintDTO {
 
     private String reason;
 
-    @NotBlank(message = "{complaint.categories.notnull}")
+    @NotEmpty(message = "{complaint.categories.notnull}")
     private Set<ComplaintCategory> categories;
 }

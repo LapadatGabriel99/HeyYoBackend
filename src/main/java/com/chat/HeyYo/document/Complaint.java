@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.GeneratedValue;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -33,5 +34,6 @@ public class Complaint {
 
     private String reason;
 
+    @NotEmpty(message = "{complaint.categories.notnull}")
     private Set<ComplaintCategory> categories;
 }

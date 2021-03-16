@@ -21,7 +21,7 @@ public class ComplaintService {
 
     public void registerComplaint(Complaint complaint) {
 
-        if (complaint.getReason() == null) {
+        if (complaint.getReason() == null || complaint.getReason().isEmpty()) {
 
             var complaints =  complaint.getCategories()
                     .stream()
