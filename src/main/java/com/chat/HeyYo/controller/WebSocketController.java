@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class ChatController {
+public class WebSocketController {
 
     @MessageMapping("/chat.join")
     @SendTo("/topic/public")
