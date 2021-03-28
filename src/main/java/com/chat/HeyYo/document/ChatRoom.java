@@ -11,7 +11,8 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.GeneratedValue;
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.List;
+import java.util.TreeSet;
 
 @Getter
 @Setter
@@ -39,8 +40,8 @@ public class ChatRoom {
     private LocalDateTime createdAt;
 
     @Field("messages")
-    private Set<Message> listOfMessages;
+    private List<Message> listOfMessages;
 
     @Field("members")
-    private Set<String> listOfMembers;
+    private TreeSet<String> listOfMembers;
 }

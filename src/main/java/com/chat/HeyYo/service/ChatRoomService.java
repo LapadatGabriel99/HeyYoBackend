@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ChatRoomService {
@@ -27,5 +26,10 @@ public class ChatRoomService {
     public List<ChatRoom> getOwnerChatRooms(String ownerName) {
 
         return chatRoomRepository.findByOwnerNameOrderByCreatedAtDesc(ownerName);
+    }
+
+    public ChatRoom createChatRoom(ChatRoom chatRoom){
+
+        return chatRoomRepository.insert(chatRoom);
     }
 }

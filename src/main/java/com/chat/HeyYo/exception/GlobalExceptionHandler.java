@@ -54,6 +54,16 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, body, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
+    @ExceptionHandler(DataNotFoundException.class)
+    public ResponseEntity<Object> handleDataNotFoundException(DataNotFoundException ex, WebRequest request) {
+
+        var body = new HashMap<String, Object>();
+        body.put(TIMESTAMP, LocalDateTime.now());
+        body.put(MESSAGE, ex.getMessage());
+
+        return handleExceptionInternal(ex, body, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+    }
+
     // TODO: maybe think of a better logic
     @ExceptionHandler(MessagingException.class)
     public ResponseEntity<Object> handleMessagingException(MessagingException ex, WebRequest request) {
@@ -85,6 +95,16 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         body.put(MESSAGE, normalizedMessage);
 
         return handleExceptionInternal(ex, body, new HttpHeaders(), HttpStatus.CONFLICT, request);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Object> handleDefaultException(Exception ex, WebRequest request) {
+
+        var body = new HashMap<String, Object>();
+        body.put(TIMESTAMP, LocalDateTime.now());
+        body.put(MESSAGE, ex.getMessage());
+
+        return handleExceptionInternal(ex, body, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
     
     @Override
