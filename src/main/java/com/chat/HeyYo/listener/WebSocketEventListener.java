@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
+import java.time.LocalDateTime;
+
 @Component
 public class WebSocketEventListener {
 
@@ -33,10 +35,11 @@ public class WebSocketEventListener {
 
         final var username = (String)headerAccessor.getSessionAttributes().get("username");
 
-        final var message = Message.builder()
-                .type(MessageType.DISCONNECT)
-                .sender(username)
-                .build();
+        final var message = new Message();
+        message.setType(MessageType.DISCONNECT);
+        message.setContent(username + " left");
+        message.setSender(username);
+        message.setTime(LocalDateTime.now().toString());
 
         messageSendingOperations.convertAndSend("/topic/public", message);
     }

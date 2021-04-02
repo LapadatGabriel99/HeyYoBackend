@@ -12,5 +12,5 @@ public interface ChatRoomRepository extends MongoRepository<ChatRoom, String> {
     Optional<ChatRoom> findByRoomName(String roomName);
 
     @Query(fields = "{'name' : 1, 'nickname': 1}")
-    List<ChatRoom> findByOwnerNameOrderByCreatedAtDesc(String ownerName);
+    List<ChatRoom> findByRoomOwnerOrderByCreatedAtDesc(String ownerName);
 }

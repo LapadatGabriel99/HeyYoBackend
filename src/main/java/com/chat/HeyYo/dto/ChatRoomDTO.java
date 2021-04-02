@@ -2,12 +2,17 @@ package com.chat.HeyYo.dto;
 
 import com.chat.HeyYo.document.Message;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Set;
+import java.util.TreeSet;
 
+@Getter
+@Setter
 public class ChatRoomDTO {
 
     private String id;
@@ -25,5 +30,5 @@ public class ChatRoomDTO {
 
     private Set<Message> listOfMessages;
 
-    private Set<String> listOfMembers;
+    private TreeSet<String> listOfMembers;
 }

@@ -1,6 +1,8 @@
 package com.chat.HeyYo.config;
 
+import com.chat.HeyYo.converter.ChatRoomConverter;
 import com.chat.HeyYo.converter.ComplaintConverter;
+import com.chat.HeyYo.converter.MessageConverter;
 import com.chat.HeyYo.converter.UserConverter;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.MessageSource;
@@ -27,6 +29,18 @@ public class ApplicationConfig {
     public ComplaintConverter complaintConverter() {
 
         return new ComplaintConverter();
+    }
+
+    @Bean
+    public ChatRoomConverter chatRoomConverter() {
+
+        return new ChatRoomConverter();
+    }
+
+    @Bean
+    public MessageConverter messageConverter() {
+
+        return new MessageConverter();
     }
 
     @Bean
