@@ -21,7 +21,7 @@ public class ChatRoomService {
 
     public ChatRoom getChatRoom(String roomName) {
 
-        return chatRoomRepository.findByRoomName(roomName)
+        return chatRoomRepositoryImpl.findByRoomName(roomName)
                 .orElseThrow(() -> new DataNotFoundException(
                         ChatRoom.class.getName(),
                         ChatRoom.class.getDeclaredFields()[1].getName(),

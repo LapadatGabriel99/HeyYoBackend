@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.List;
 import java.util.TreeSet;
 
 @Getter
@@ -28,7 +28,7 @@ public class ChatRoomDTO {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime createdAt;
 
-    private Set<Message> listOfMessages;
+    private List<Message> listOfMessages;
 
     private TreeSet<String> listOfMembers;
 }
